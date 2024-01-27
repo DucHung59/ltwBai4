@@ -1,0 +1,220 @@
+:root {
+    --menu-background: rgb(0, 197, 161);
+    --header-background: rgb(24, 237, 120);
+}
+
+/* Header */
+
+h1 {
+    text-transform: uppercase;
+    background: var(--header-background);
+    color: aliceblue;
+    height: 70px;
+    line-height: 70px;
+    margin: 0;
+    padding-left: 15px;
+    cursor: default;
+}
+/* 
+header {
+    width: 100%;
+} */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Menu */
+.menu::before, .menu::after {
+    height: auto;
+    width: 350px;  
+    content: "";
+    background: var(--menu-background);
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    background: var(--menu-background);
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    color: aliceblue;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+}
+
+.menu ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 12rem;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    
+}
+
+.menu ul a {
+    text-align: center;
+    background: var(--menu-background);
+    border-top: 1px solid white;
+    border-right: none; 
+}
+
+.menu > li a:hover, .menu li:hover > a {
+    background: var(--header-background);
+}
+
+.menu > li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Nội dung */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) repeat(9, 1fr);
+}
+
+.col-3 {
+    grid-column: span 3;
+    padding: 25px;
+}
+
+.col-9 {
+    grid-column: span 9;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Tìm kiếm */
+
+#search {
+    padding: 5px;
+}
+
+#searchInput {
+    border-radius: 5px;
+    border: 1px solid rgba(147, 145, 145, 0.889);
+    height: 35px;
+    line-height: 35px;
+    padding: 7px;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    outline: 1px;
+    color: aliceblue;
+    background: var(--menu-background);
+}
+
+#btnSearch {
+    border-radius: 7px;
+    height: 35px;
+    width: 65px;
+    border: 1px solid var(--header-background);
+    transition: 0.3s;
+}
+
+
+#btnSearch:hover {
+    background: var(--header-background);
+    color: aliceblue;
+    cursor: pointer;
+}
+
+/* Ảnh */
+figure {
+    border: 1px solid black;
+    margin: 20px 10px;
+    padding: 10px;
+}
+
+figure figcaption {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+figure img {
+    display: flex;
+    width: 210px;
+}
+
+/* Footer */
+footer {
+    background: var(--header-background);
+    height: 70px;
+    width: 100%;
+}
+
+footer p {
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Màn hình*/
+@media (max-width:768px) {
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu li a {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        border-right: none;
+        background: var(--menu-background);
+        border-top: 1px solid white;
+    }
+
+    .menu ul{
+        width: 100%;
+        padding: 0;
+    }
+
+    .menu ul a {
+        width: auto;
+        padding-left: 0;
+    }
+
+    header h1 {
+        width: 100%;
+        max-width: 1200%;
+        margin: 0 auto;
+    }
+
+    .col-3 {
+        display: flex;
+        margin: 0 auto;
+        line-height: 30px;
+    }
+}
